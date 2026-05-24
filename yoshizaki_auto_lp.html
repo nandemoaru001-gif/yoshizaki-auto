@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吉崎自動車 | 京都府綾部市の中古車専門店</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --sky: #E8F4FD;
+    --sky-mid: #A8D8F0;
+    --sky-dark: #2196C9;
+    --sky-deep: #0D6FA0;
+    --mint: #E6F7F2;
+    --mint-mid: #4DC4A0;
+    --accent: #FF6B35;
+    --text: #1A2E3B;
+    --text-sub: #4A6070;
+    --text-light: #7A9AAA;
+    --white: #FFFFFF;
+    --bg-light: #F6FBFF;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+  body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif; color: var(--text); background: var(--white); }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1.5px solid var(--sky-mid);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo { font-size: 20px; font-weight: 700; color: var(--sky-deep); letter-spacing: 0.04em; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 16px; }
+  .nav-links a { font-size: 12px; color: var(--text-sub); text-decoration: none; font-weight: 500; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #E8F4FD 0%, #D0EDF8 40%, #E6F7F2 100%);
+    padding: 48px 20px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--sky-dark);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { color: var(--sky-dark); font-style: normal; }
+  .hero p {
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.85;
+    margin-bottom: 30px;
+  }
+  .hero-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .btn-primary {
+    background: var(--sky-dark);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--sky-dark);
+    border: 2px solid var(--sky-dark);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+  .car-illust { margin: 32px auto 0; max-width: 340px; }
+
+  /* SECTIONS */
+  .section { padding: 48px 20px; }
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .section-title span { color: var(--sky-dark); }
+  .section-sub {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    letter-spacing: 0.08em;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1.5px solid var(--sky-mid);
+    border-radius: var(--radius-lg);
+    padding: 22px 14px 18px;
+    text-align: center;
+  }
+  .feature-icon {
+    width: 48px; height: 48px;
+    background: var(--sky);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 22px;
+  }
+  .feature-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+  .feature-desc { font-size: 11px; color: var(--text-sub); line-height: 1.7; }
+
+  /* STOCK */
+  .stock-section {
+    background: linear-gradient(135deg, #0D6FA0 0%, #1590C0 50%, #0F8070 100%);
+    padding: 48px 20px;
+    text-align: center;
+  }
+  .stock-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .stock-section p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+  .btn-goo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--sky-deep);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: var(--bg-light);
+    border: 1.5px solid var(--sky-mid);
+    border-radius: var(--radius);
+    padding: 18px 10px;
+    text-align: center;
+  }
+  .service-card .icon { font-size: 26px; margin-bottom: 8px; }
+  .service-card .label { font-size: 12px; font-weight: 700; color: var(--text); }
+
+  /* INFO */
+  .info-section { background: var(--bg-light); padding: 48px 20px; }
+  .info-card {
+    background: var(--white);
+    border: 1.5px solid var(--sky-mid);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .info-header {
+    background: var(--sky);
+    padding: 16px 20px;
+    border-bottom: 1.5px solid var(--sky-mid);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sky-deep);
+  }
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--sky);
+    gap: 14px;
+    font-size: 13px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--text-light); min-width: 72px; font-weight: 600; }
+  .info-val { color: var(--text); line-height: 1.7; }
+
+  /* CTA */
+  .cta-section { background: var(--white); padding: 48px 20px; text-align: center; }
+  .cta-section h2 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+  .cta-section p { font-size: 13px; color: var(--text-sub); margin-bottom: 24px; line-height: 1.85; }
+  .tel-block {
+    display: inline-block;
+    background: var(--sky);
+    border: 2px solid var(--sky-mid);
+    border-radius: var(--radius-lg);
+    padding: 18px 28px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .tel-label { font-size: 11px; color: var(--text-light); letter-spacing: 0.08em; margin-bottom: 4px; }
+  .tel-num { font-size: 22px; font-weight: 800; color: var(--sky-deep); letter-spacing: 0.03em; }
+  .tel-hours { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 16px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--sky-deep);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  footer strong { color: var(--white); }
+
+  @media (min-width: 600px) {
+    .hero { padding: 64px 40px 56px; }
+    .hero h1 { font-size: 36px; }
+    .hero-btns { flex-direction: row; justify-content: center; }
+    nav { padding: 14px 32px; }
+    .section { padding: 56px 40px; }
+    .features-grid { grid-template-columns: repeat(4, 1fr); }
+    .services-grid { grid-template-columns: repeat(6, 1fr); }
+    .cta-btns { flex-direction: row; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">吉崎<span>自動車</span></div>
+  <div class="nav-links">
+    <a href="#features">強み</a>
+    <a href="#stock">在庫</a>
+    <a href="#info">店舗情報</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">京都府綾部市の中古車専門店</div>
+  <h1>あなたにぴったりの<br>一台を、丁寧に。<br><em>吉崎自動車</em></h1>
+  <p>軽自動車からセダン、ミニバン、輸入車まで。<br>車高調・エアロなどカスタム車も豊富にご用意。<br>こだわりの一台を探しているあなたへ。</p>
+  <div class="hero-btns">
+    <a href="https://www.goo-net.com/usedcar_shop/0708153/stock.html" class="btn-primary">在庫をこちらで確認する →</a>
+    <a href="#info" class="btn-secondary">店舗情報を見る</a>
+  </div>
+  <div class="car-illust">
+    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <ellipse cx="240" cy="148" rx="210" ry="8" fill="rgba(33,150,201,0.10)"/>
+      <rect x="60" y="90" width="360" height="50" rx="8" fill="#2196C9" opacity="0.15"/>
+      <path d="M80 108 C90 80, 130 60, 175 58 L305 58 C350 60, 390 80, 400 108 L80 108Z" fill="#2196C9" opacity="0.22"/>
+      <rect x="60" y="105" width="362" height="45" rx="10" fill="#1590C0"/>
+      <rect x="70" y="110" width="340" height="36" rx="8" fill="#2196C9"/>
+      <path d="M100 108 C110 82, 145 62, 185 60 L295 60 C335 62, 370 82, 380 108Z" fill="#A8D8F0"/>
+      <rect x="120" y="65" width="85" height="42" rx="4" fill="rgba(255,255,255,0.7)"/>
+      <rect x="275" y="65" width="85" height="42" rx="4" fill="rgba(255,255,255,0.7)"/>
+      <line x1="240" y1="65" x2="240" y2="107" stroke="#2196C9" stroke-width="2" opacity="0.4"/>
+      <circle cx="115" cy="148" r="22" fill="#1A2E3B"/>
+      <circle cx="115" cy="148" r="14" fill="#4A6070"/>
+      <circle cx="115" cy="148" r="7" fill="#A8D8F0"/>
+      <circle cx="365" cy="148" r="22" fill="#1A2E3B"/>
+      <circle cx="365" cy="148" r="14" fill="#4A6070"/>
+      <circle cx="365" cy="148" r="7" fill="#A8D8F0"/>
+      <rect x="60" y="120" width="25" height="12" rx="4" fill="#FFD54F" opacity="0.9"/>
+      <rect x="395" y="120" width="25" height="12" rx="4" fill="#FF7043" opacity="0.9"/>
+    </svg>
+  </div>
+</div>
+
+<div class="section" id="features">
+  <div class="section-title"><span>選ばれる理由</span></div>
+  <div class="section-sub">OUR STRENGTHS</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🚗</div>
+      <div class="feature-title">豊富な在庫</div>
+      <div class="feature-desc">軽・セダン・ミニバン・輸入車まで幅広くラインナップ。カスタム車も多数。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">厳選仕入れ</div>
+      <div class="feature-desc">一台一台を丁寧に厳選。品質にこだわった中古車のみをご提供します。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">各種保険対応</div>
+      <div class="feature-desc">自動車保険の新規・更新もまとめてお任せ。お客様に合わせてご提案。</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔧</div>
+      <div class="feature-title">注文販売</div>
+      <div class="feature-desc">ご希望の車種・条件を伝えていただければ、お探しします。まずはご相談を。</div>
+    </div>
+  </div>
+</div>
+
+<div class="stock-section" id="stock">
+  <h2>最新の中古車在庫はこちら</h2>
+  <p>グーネットに最新在庫を随時掲載中。<br>気になる車はお気軽にお問い合わせください。</p>
+  <a href="https://www.goo-net.com/usedcar_shop/0708153/stock.html" class="btn-goo">
+    🔍 こちらを確認する（グーネット）
+  </a>
+</div>
+
+<div class="section" id="services">
+  <div class="section-title">サービス<span>一覧</span></div>
+  <div class="section-sub">SERVICES</div>
+  <div class="services-grid">
+    <div class="service-card"><div class="icon">🚙</div><div class="label">中古車販売</div></div>
+    <div class="service-card"><div class="icon">✨</div><div class="label">新車販売</div></div>
+    <div class="service-card"><div class="icon">📦</div><div class="label">注文販売</div></div>
+    <div class="service-card"><div class="icon">🛡️</div><div class="label">各種保険</div></div>
+    <div class="service-card"><div class="icon">🔩</div><div class="label">車検・整備</div></div>
+    <div class="service-card"><div class="icon">💴</div><div class="label">車の買取</div></div>
+  </div>
+</div>
+
+<div class="info-section" id="info">
+  <div class="section-title">店舗<span>情報</span></div>
+  <div class="section-sub">SHOP INFO</div>
+  <div class="info-card">
+    <div class="info-header">吉崎自動車</div>
+    <div class="info-row">
+      <div class="info-label">住所</div>
+      <div class="info-val">〒623-0102<br>京都府綾部市上杉町ヤボセ9−4</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">営業時間</div>
+      <div class="info-val">9:30 〜 19:00</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">定休日</div>
+      <div class="info-val">日曜日</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">事業内容</div>
+      <div class="info-val">新車・中古車販売 / 注文販売<br>各種保険取扱い</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">古物商</div>
+      <div class="info-val">許可番号 612480930001</div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>お気軽にご連絡ください</h2>
+  <p>在庫のご確認・お見積もり・注文販売のご相談など<br>なんでもお気軽にどうぞ。</p>
+  <div class="tel-block">
+    <div class="tel-label">お電話でのお問い合わせ</div>
+    <div class="tel-num">0078-6044-1620561</div>
+    <div class="tel-hours">営業時間 9:30〜19:00 ／ 日曜定休</div>
+  </div>
+  <div class="cta-btns">
+    <a href="https://www.goo-net.com/usedcar_shop/0708153/stock.html" class="btn-primary">グーネットで在庫を確認する →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>吉崎自動車</strong><br>
+  〒623-0102 京都府綾部市上杉町ヤボセ9−4<br>
+  © 吉崎自動車 All Rights Reserved.
+</footer>
+
+</body>
+</html>
